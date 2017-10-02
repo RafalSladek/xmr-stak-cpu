@@ -7,6 +7,8 @@ platform: x64
 # clone directory
 clone_folder: c:\xmr-stak-cpu
 
+version: '1.0.{build}-{branch}'
+
 install:
   - mkdir c:\xmr-stak-dep
   - curl -sL https://github.com/fireice-uk/xmr-stak-dep/releases/download/v1/xmr-stak-dep.zip -o xmr-stak-dep.zip
@@ -27,5 +29,5 @@ test_script:
   - tree /f
 artifacts:
   - path: build\bin\Release
-    name: xmr-stak-cpu
+    name: xmr-stak-cpu-{version}
 #  - xmr-stak-cpu.exe
