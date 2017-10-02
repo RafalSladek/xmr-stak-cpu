@@ -26,7 +26,7 @@ build_script:
 test_script:
   - cd c:\xmr-stak-cpu\build\bin\Release
   - copy ..\..\..\config.txt .
-  - type $(appveyor_build_version) > build.txt
+  - echo $(appveyor_build_version) > build.txt
   - tree /f
 artifacts:
   - path: build\bin\Release
