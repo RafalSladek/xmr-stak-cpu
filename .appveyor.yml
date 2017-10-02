@@ -23,9 +23,9 @@ build_script:
 
 test_script:
   - cd c:\xmr-stak-cpu\build\bin\Release
-  - dir
+  - tree /f
   - copy ..\..\..\config.txt .
 artifacts:
-  - path: c:\xmr-stak-cpu\build\bin\Release
+  - path: build\bin\Release
     name: xmr-stak-cpu
 #  - xmr-stak-cpu.exe
