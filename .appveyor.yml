@@ -29,5 +29,5 @@ test_script:
   - tree /f
 artifacts:
   - path: build\bin\Release
-    name: xmr-stak-cpu-{version}
+    name: xmr-stak-cpu-$(appveyor_build_version)
 #  - xmr-stak-cpu.exe
