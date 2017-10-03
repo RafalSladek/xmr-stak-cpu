@@ -10,10 +10,10 @@ clone_folder: c:\xmr-stak-cpu
 version: '1.0.{build}-{branch}'
 
 install:
-  - mkdir c:\xmr-stak-dep
-  - curl -sL https://github.com/fireice-uk/xmr-stak-dep/releases/download/v1/xmr-stak-dep.zip -o xmr-stak-dep.zip
-  - 7z x xmr-stak-dep.zip -o"c:\xmr-stak-dep" -y > nul
-
+  - if not exist "c:\xmr-stak-dep" (mkdir c:\xmr-stak-dep & curl -sL https://github.com/fireice-uk/xmr-stak-dep/releases/download/v1/xmr-stak-dep.zip -o xmr-stak-dep.zip & 7z x xmr-stak-dep.zip -o"c:\xmr-stak-dep" -y > nul)
+ cache:
+    - c:\xmr-stak-dep
+  
 build_script:
   - call "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\Tools\VsMSBuildCmd.bat"
   - cd c:\xmr-stak-cpu
@@ -30,5 +30,5 @@ test_script:
   - tree /f
 artifacts:
   - path: build\bin\Release
-    name: xmr-stak-cpu
+    name: xmr-stak-cpu-win
 #  - xmr-stak-cpu.exe
